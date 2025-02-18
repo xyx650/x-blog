@@ -1,0 +1,15 @@
+{
+  "name": "x-blog",
+  "version": "1.0.0",
+  "description": "a x-blog",
+  "scripts": {
+
+  },
+  "keywords": [],
+  "author": "xyx650",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xyx650/x-blog"
+  },
+  "license": "LGPL-3.0-or-later"
+}
