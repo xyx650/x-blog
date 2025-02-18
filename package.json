@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "a x-blog",
   "scripts": {
-
+    "dev:server": "pnpm --filter @x-blog/server start:dev",
+    "build:server": "pnpm --filter @x-blog/server build"
   },
   "keywords": [],
   "author": "xyx650",
@@ -11,5 +12,8 @@
     "type": "git",
     "url": "https://github.com/xyx650/x-blog"
   },
-  "license": "LGPL-3.0-or-later"
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
 }
