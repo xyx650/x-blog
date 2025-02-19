@@ -1,7 +1,14 @@
 import { defineConfig } from '@umijs/max';
 
 export default defineConfig({
-  antd: {},
+  antd: {
+    dark: true,
+    compact: true,
+    configProvider: {}
+  },
+  theme: {
+    '@primary-color': '#1DA57A'
+  },
   access: {},
   model: {},
   initialState: {},
@@ -10,7 +17,7 @@ export default defineConfig({
     esbuild: true,
   },
   layout: {
-    title: '@umijs/max',
+    // title: 'x-blog',
   },
   routes: [
     {
