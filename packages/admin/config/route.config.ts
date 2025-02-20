@@ -3,7 +3,12 @@ import type { MenuDataItem } from '@ant-design/pro-components'
 export const routes: MenuDataItem[] = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/overview',
+  },
+  {
+    name: '总览',
+    path: '/overview',
+    component: './Overview',
   },
   {
     name: '首页',

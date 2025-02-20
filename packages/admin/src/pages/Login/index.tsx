@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useRequest } from '@@/plugin-request'
+import { history, useSearchParams } from '@umijs/max'
 import {
   AlipayOutlined,
   LockOutlined,
@@ -102,16 +103,7 @@ const LoginPage: React.FC = () => {
       </>
     )
 
-  const iconStyles: React.CSSProperties = {
-    color: 'rgba(0, 0, 0, 0.2)',
-    fontSize: '18px',
-    verticalAlign: 'middle',
-    cursor: 'pointer'
-  }
-
-  const iconWrapperStyles: React.CSSProperties = {
-    border: '1px solid ' + token.colorPrimaryBorder,
-  }
+  const iconWrapperStyles: React.CSSProperties = { border: '1px solid ' + token.colorPrimaryBorder }
 
   const handleIconClick = async () => {
     // TODO
@@ -128,13 +120,13 @@ const LoginPage: React.FC = () => {
       </Divider>
       <Space align="center" size={ 24 }>
         <div className={styles['icon-wrapper']} style={ iconWrapperStyles }>
-          <AlipayOutlined style={ { ...iconStyles, color: '#1677FF' } } onClick={ handleIconClick }/>
+          <AlipayOutlined className={styles.icon} style={ { color: '#1677FF' } } onClick={ handleIconClick }/>
         </div>
         <div className={styles['icon-wrapper']} style={ iconWrapperStyles }>
-          <TaobaoOutlined style={ { ...iconStyles, color: '#FF6A10' } } onClick={ handleIconClick }/>
+          <TaobaoOutlined className={styles.icon} style={ { color: '#FF6A10' } } onClick={ handleIconClick }/>
         </div>
         <div className={styles['icon-wrapper']} style={ iconWrapperStyles }>
-          <WeiboOutlined style={ { ...iconStyles, color: '#1890ff' } } onClick={ handleIconClick }/>
+          <WeiboOutlined className={styles.icon} style={ { color: '#1890ff' } } onClick={ handleIconClick }/>
         </div>
       </Space>
     </div>
@@ -148,6 +140,8 @@ const LoginPage: React.FC = () => {
     //   ...formData,
     //   type: LoginType.ACCOUNT
     // }))
+    const [query] = useSearchParams()
+    history.push(query.get('redirect') || '/')
   }
 
   return (
