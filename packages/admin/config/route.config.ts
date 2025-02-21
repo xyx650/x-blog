@@ -9,6 +9,7 @@ export const routes: MenuDataItem[] = [
     name: '总览',
     path: '/overview',
     component: './Overview',
+    icon: 'BarChartOutlined'
   },
   {
     name: '首页',

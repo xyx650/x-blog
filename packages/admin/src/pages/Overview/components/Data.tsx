@@ -37,7 +37,11 @@ const DataTab = () => {
     data: eachData,
     xField: 'date',
     height: 200,
+    theme: 'classicDark'
   }
+
+  const colSpan = responsive ? 24 : 6
+  const chartColSpan = !responsive ? 12 : 24
 
   return (
     <Spin spinning={ loading }>
@@ -47,7 +51,7 @@ const DataTab = () => {
         className={ styles['pro-card-wrapper'] }
       >
         <StatisticCard
-          colSpan={ responsive ? 24 : 6 }
+          colSpan={ colSpan }
           statistic={ {
             title: '文章数',
             value: 666,
@@ -55,7 +59,7 @@ const DataTab = () => {
           } }
         />
         <StatisticCard
-          colSpan={ responsive ? 24 : 6 }
+          colSpan={ colSpan }
           statistic={ {
             title: '总字数',
             layout: responsive ? 'horizontal' : 'vertical',
@@ -63,7 +67,7 @@ const DataTab = () => {
           } }
         />
         <StatisticCard
-          colSpan={ responsive ? 24 : 6 }
+          colSpan={ colSpan }
           statistic={ {
             title: <TipTitle
               title="总访客数"
@@ -75,7 +79,7 @@ const DataTab = () => {
           } }
         />
         <StatisticCard
-          colSpan={ responsive ? 24 : 6 }
+          colSpan={ colSpan }
           statistic={ {
             title: <TipTitle
               title="总访问数"
@@ -96,7 +100,7 @@ const DataTab = () => {
       >
         <StatisticCard
           style={ { marginBottom: responsive ? 8 : 0 } }
-          colSpan={ !responsive ? 12 : 24 }
+          colSpan={ chartColSpan }
           className={ styles['card-full-title'] }
           title={
             <div style={ { display: 'flex', justifyContent: 'space-between' } }>
@@ -109,7 +113,7 @@ const DataTab = () => {
 
         <StatisticCard
           style={ { marginBottom: responsive ? 8 : 0 } }
-          colSpan={ !responsive ? 12 : 24 }
+          colSpan={ chartColSpan }
           className={ styles['card-full-title'] }
           title={
             <div style={ { display: 'flex', justifyContent: 'space-between' } }>
@@ -129,7 +133,7 @@ const DataTab = () => {
       >
         <StatisticCard
           style={ { marginBottom: responsive ? 8 : 0 } }
-          colSpan={ !responsive ? 12 : 24 }
+          colSpan={ chartColSpan }
           className={ styles['card-full-title'] }
           title={
             <div style={ { display: 'flex', justifyContent: 'space-between' } }>
@@ -142,7 +146,7 @@ const DataTab = () => {
 
         <StatisticCard
           style={ { marginBottom: responsive ? 8 : 0 } }
-          colSpan={ !responsive ? 12 : 24 }
+          colSpan={ chartColSpan }
           className={ styles['card-full-title'] }
           title={
             <div style={ { display: 'flex', justifyContent: 'space-between' } }>
