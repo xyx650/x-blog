@@ -91,7 +91,8 @@ const CountTab = () => {
             layout: layoutProp,
             title: '最近访问路径',
             formatter: () => <a className="ua blue" target="_blank" rel="noreferrer" href={ recentHref }>
-              { data?.siteLastVisitedPathname || '-' }
+              {/* key: data.siteLastVisitedPathname*/}
+              { '-' }
             </a>
           } }
         />
