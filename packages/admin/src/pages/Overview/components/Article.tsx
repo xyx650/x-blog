@@ -39,7 +39,6 @@ const ArticleTab = () => {
     //   name: 'type'
     // },
     tooltip: (cur: { value: number, type: string }, _index: number, data: { value: number, type: string }[]) => {
-      console.log(data)
       const total = data.reduce((pre, cur) => pre + cur.value, 0)
       return {
         name: cur.type,

@@ -27,6 +27,10 @@ export default tseslint.config(
   },
   {
     rules: {
+      semi: ['error', 'never'],
+      'comma-dangle': ['error', 'never'],
+      'object-curly-newline': 'off',
+      'prettier/prettier': 'off',
       '@typescript-eslint/no-explicit-any': 'off',
       '@typescript-eslint/no-floating-promises': 'warn',
       '@typescript-eslint/no-unsafe-argument': 'warn'
