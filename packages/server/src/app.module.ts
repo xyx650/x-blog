@@ -1,18 +1,17 @@
 import { Module } from '@nestjs/common'
 
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { ConfigModule } from '@nestjs/config'
 
-import { configModuleOptions } from './config'
+
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
 
-
+import { ConfigModule } from './common/config/config.mudule'
 
 
 @Module({
   imports: [
-    ConfigModule.forRoot(configModuleOptions)
+    ConfigModule
     // TypeOrmModule.forRootAsync({
     //   useFactory: (configService: ConfigService) => ({
     //
