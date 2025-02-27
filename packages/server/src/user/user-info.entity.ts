@@ -4,8 +4,8 @@ import { User } from 'src/user/user.entity'
 @Entity()
 export class UserInfo {
 
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryGeneratedColumn('uuid')
+  id: string
 
   @Column({ type: 'varchar', length: 255, nullable: true })
   avatar: string // 用户头像的URL

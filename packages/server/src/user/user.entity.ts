@@ -7,8 +7,8 @@ import type { Dayjs } from 'dayjs'
 @Entity()
 export class User {
 
-  @PrimaryGeneratedColumn()
-  id: number
+  @PrimaryGeneratedColumn('uuid')
+  id: string
 
   @Column({ unique: true })
   username: string

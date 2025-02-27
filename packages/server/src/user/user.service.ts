@@ -11,11 +11,17 @@ export class UserService {
   ) {
   }
 
-  async create(user: UserAddDto): Promise<User> {
-    return await this.userRepository.save(user)
+  create(user: UserAddDto): Promise<User> {
+    return this.userRepository.save(user)
   }
 
   findAll () {
     return this.userRepository.find()
+  }
+
+  findOne(id: string) {
+    return this.userRepository.findOne({
+      where: { id }
+    })
   }
 }

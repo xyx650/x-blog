@@ -1,30 +1,31 @@
-import { Body, ClassSerializerInterceptor, Controller, Get, Post, UseInterceptors } from '@nestjs/common'
+import { Body, ClassSerializerInterceptor, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common'
 import { UserService } from './user.service'
 import { User } from './user.entity'
 import { UserAddDto } from '../common/dto/user.dto'
 
 @Controller('user')
+@UseInterceptors(ClassSerializerInterceptor)
 export class UserController {
   constructor(
     private readonly userService: UserService
   ) {
   }
 
-  @Get('get')
-  getUser(@Body() body: UserAddDto) {
-    // const { username, password } = body
-
+  @Get(':id')
+  getUser(@Param('id') id: string) {
+    return this.userService.findOne(id)
   }
 
   @Get('all')
-  @UseInterceptors(ClassSerializerInterceptor)
-  getUsers(): Promise<User[]> {
+  getUsers() {
     return this.userService.findAll()
   }
 
   @Post('add')
-  @UseInterceptors(ClassSerializerInterceptor)
-  async addUser(@Body() user: UserAddDto) {
-    return await this.userService.create(user)
+  addUser(@Body() user: UserAddDto) {
+    const _user = new User()
+    _user.username = user.username
+    _user.password = user.password
+    return this.userService.create(_user)
   }
 }
