@@ -28,6 +28,7 @@ Thumbs.db
 
 # Environment files
 # .env
+.env.development
 .env.local
 .env.*.local
 

@@ -4,6 +4,8 @@
   "description": "a x-blog",
   "scripts": {
     "dev:server": "pnpm --filter @x-blog/server start:dev",
+    "docker:up": "pnpm --filter @x-blog/server up:mysql-docker",
+    "docker:down": "pnpm --filter @x-blog/server down:mysql-docker",
     "dev:admin": "pnpm --filter @x-blog/admin start:dev",
     "build:server": "pnpm --filter @x-blog/server build",
     "build:admin": "pnpm --filter @x-blog/admin build"

@@ -1,0 +1,19 @@
+# version: '3.1'  # 使用的 Docker Compose 文件版本
+
+services:
+  mysql:
+    image: mysql:8  # 使用 MySQL 8 镜像
+    container_name: mysql-container  # 给容器命名
+    environment:
+      MYSQL_ROOT_PASSWORD: a123456  # 设置 MySQL root 用户的密码
+      MYSQL_DATABASE: blog  # 创建一个默认数据库（可选）
+      # MYSQL_USER: blog_user  # 创建一个非 root 用户（可选）
+      # MYSQL_PASSWORD: blog_123456  # 设置新用户的密码（可选）
+    ports:
+      - "3306:3306"  # 将主机的 3306 端口映射到容器的 3306 端口
+    volumes:
+      - mysql-data:/var/lib/mysql  # 使用 Docker 卷存储数据库数据
+    restart: always  # 容器退出时自动重启
+
+volumes:
+  mysql-data:  # 创建名为 mysql-data 的卷来持久化数据库数据
