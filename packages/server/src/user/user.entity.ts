@@ -1,8 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn /*OneToOne*/ } from 'typeorm'
-// import { UserInfo } from './user-info.entity'
+import { Column, Entity, PrimaryGeneratedColumn, OneToOne, Relation } from 'typeorm'
+import { UserProfile } from './user-profile.entity'
 import { Exclude, Expose, Transform } from 'class-transformer'
-import dayjs from 'dayjs'
-import type { Dayjs } from 'dayjs'
+import dayjs, { type Dayjs } from 'dayjs'
 
 @Entity()
 export class User {
@@ -10,13 +9,10 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string
 
-  @Column({ unique: true })
+  @Column({ unique: true, update: false })
   username: string
 
-  @Column({ unique: true, nullable: true })
-  email: string
-
-  @Column()
+  @Column({ })
   @Exclude()
   password: string
 
@@ -38,6 +34,6 @@ export class User {
   @Transform(({ value }) => dayjs(value as Dayjs).format('YYYY-MM-DD HH:mm:ss'))
   updated_at: Date
 
-  // @OneToOne(() => UserInfo)
-  // userInfo: UserInfo
+  @OneToOne(() => UserProfile, profile => profile.user, { cascade: true })
+  profile: Relation<UserProfile>
 }

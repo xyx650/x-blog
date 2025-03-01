@@ -12,8 +12,8 @@ import { ConfigEnum } from '../shared/enums/config.enum'
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
         autoLoadEntities: true, // 自动注册 Entities
-        synchronize: process.env.NODE_ENV === 'development', // 是否自动同步
-        retryAttempts: 2,
+        synchronize: configService.get(ConfigEnum.DB_SYNCHRONIZE), // 是否自动同步
+        retryAttempts: configService.get(ConfigEnum.DB_RETRY),
         type: configService.get(ConfigEnum.DB),
         host: configService.get(ConfigEnum.DB_HOST),
         port: configService.get(ConfigEnum.DB_PORT),

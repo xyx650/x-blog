@@ -1,7 +1,6 @@
-import { Body, ClassSerializerInterceptor, Controller, Get, Param, Post, UseInterceptors } from '@nestjs/common'
+import { Body, ClassSerializerInterceptor, Controller, Get, Param, Patch, Post, UseInterceptors } from '@nestjs/common'
 import { UserService } from './user.service'
 import { User } from './user.entity'
-import { UserAddDto } from '../common/dto/user.dto'
 
 @Controller('user')
 @UseInterceptors(ClassSerializerInterceptor)
@@ -12,20 +11,22 @@ export class UserController {
   }
 
   @Get(':id')
-  getUser(@Param('id') id: string) {
+  getUserById(@Param('id') id: string) {
     return this.userService.findOne(id)
   }
 
-  @Get('all')
+  @Get()
   getUsers() {
     return this.userService.findAll()
   }
 
   @Post('add')
-  addUser(@Body() user: UserAddDto) {
-    const _user = new User()
-    _user.username = user.username
-    _user.password = user.password
-    return this.userService.create(_user)
+  addUser(@Body() user: Partial<User>) {
+    return this.userService.create(user)
+  }
+
+  @Patch(':id')
+  updateUserById(@Param('id') id: string, @Body() user: Partial<User>) {
+    return this.userService.update(id, user)
   }
 }
