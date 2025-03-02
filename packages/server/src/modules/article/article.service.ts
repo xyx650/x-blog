@@ -11,7 +11,7 @@ export class ArticleService {
     private readonly articleRepository: Repository<ArticleEntity>
   ) {}
 
-  async count () {
+  async countAll () {
     return this.articleRepository.count()
   }
 

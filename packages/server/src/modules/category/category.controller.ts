@@ -28,7 +28,7 @@ export class CategoryController {
 
   @Get(':id')
   getCategoryById(@Param('id', ParseIntPipe) id: number) {
-    return this.categoryService.findOne(id)
+    return this.categoryService.findOneById(id)
   }
 
   @Post()

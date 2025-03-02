@@ -22,14 +22,14 @@ export class CategoryService {
     return this.categoryRepository.find()
   }
 
-  async findOne(id: number) {
+  async findOneById(id: number) {
     return this.categoryRepository.findOne({
       where: { id }
     })
   }
 
   async updateById(id: number, category: CategoryDto) {
-    const _category = await this.findOne(id)
+    const _category = await this.findOneById(id)
     if (!_category) {
       throw new NotFoundException(`Category with id ${id} not found`)
     }
@@ -40,7 +40,7 @@ export class CategoryService {
   }
 
   async deleteById(id: number) {
-    const _category = await this.findOne(id)
+    const _category = await this.findOneById(id)
     if (!_category) {
       throw new NotFoundException(`Category with id ${id} not found`)
     }

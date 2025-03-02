@@ -46,7 +46,7 @@ export class UserService {
     })
   }
 
-  findOne(id: string) {
+  findOneById(id: string) {
     return this.userRepository.findOne({
       relations: ['profile'],
       where: { id }
@@ -54,7 +54,7 @@ export class UserService {
   }
 
   async update(id: string, user: UpdateUserDto) {
-    const _user = await this.findOne(id)
+    const _user = await this.findOneById(id)
     if (!_user) {
       throw new NotFoundException(`User with id ${ id } not found`)
     }
