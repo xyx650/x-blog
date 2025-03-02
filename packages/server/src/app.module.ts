@@ -5,14 +5,18 @@ import { AppService } from './app.service'
 
 import { ConfigModule } from './common/config/config.mudule'
 import { DatabaseModule } from './database/database.module'
-import { UserModule } from './user/user.module'
+import { UserModule } from '@/modules/user/user.module'
+import { ArticleModule } from '@/modules/article/article.module'
+import { CategoryModule } from '@/modules/category/category.module'
 
 
 @Module({
   imports: [
     ConfigModule,
     DatabaseModule,
-    UserModule
+    UserModule,
+    ArticleModule,
+    CategoryModule
   ],
   controllers: [AppController],
   providers: [AppService]

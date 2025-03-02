@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { ConfigModule as NestConfigModule } from '@nestjs/config'
 import Joi from 'joi'
 
-import { ConfigEnum } from '../../shared/enums/config.enum'
+import { ConfigEnum } from '@/shared/enums/config.enum'
 
 
 @Module({

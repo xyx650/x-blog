@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common'
-
 import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm'
 import { ConfigService } from '@nestjs/config'
 
-import { ConfigEnum } from '../shared/enums/config.enum'
+import { ConfigEnum } from '@/shared/enums/config.enum'
 
 
 @Module({
